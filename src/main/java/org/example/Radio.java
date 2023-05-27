@@ -20,9 +20,11 @@ public class Radio {
     public int getCurrentStation() {
         return currentStation;
     }
+
     public int getquantityStation() {
         return quantityStation;
     }
+
     public int getCurrentVolume() {
         return currentVolume;
     }

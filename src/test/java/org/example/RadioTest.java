@@ -21,7 +21,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-        @Test
+    @Test
     public void shouldSetStationBoundary() {
 
         radio.setCurrentStation(1);
