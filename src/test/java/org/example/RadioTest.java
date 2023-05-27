@@ -4,9 +4,26 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    Radio radio = new Radio();
+
     @Test
+    public void shouldCheckConstructor1() {
+        Radio radio = new Radio(100);
+        int expected = 100;
+        int actual = radio.getquantityStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldCheckConstructor2() {
+        int expected = 10;
+        int actual = radio.getquantityStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+        @Test
     public void shouldSetStationBoundary() {
-        Radio radio = new Radio();
+
         radio.setCurrentStation(1);
         int expected = 1;
         int actual = radio.getCurrentStation();
@@ -15,7 +32,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetStationIllegal() {
-        Radio radio = new Radio();
+
         radio.setCurrentStation(15);
         int expected = 0;
         int actual = radio.getCurrentStation();
@@ -24,7 +41,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetStationNormal() {
-        Radio radio = new Radio();
+
         radio.setCurrentStation(5);
         int expected = 5;
         int actual = radio.getCurrentStation();
@@ -33,7 +50,7 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationNormal() {
-        Radio radio = new Radio();
+
         radio.setCurrentStation(3);
         radio.setNextStation();
 
@@ -45,7 +62,7 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationBoundaryUp() {
-        Radio radio = new Radio();
+
         radio.setCurrentStation(9);
         radio.setNextStation();
 
@@ -57,7 +74,7 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationBoundaryDown() {
-        Radio radio = new Radio();
+
         radio.setCurrentStation(1);
         radio.setNextStation();
 
@@ -69,7 +86,7 @@ public class RadioTest {
 
     @Test
     public void shouldNextStationNormaltoBoundary() {
-        Radio radio = new Radio();
+
         radio.setCurrentStation(8);
         radio.setNextStation();
 
@@ -81,7 +98,7 @@ public class RadioTest {
 
     @Test
     public void shouldPrevStationBoundaryUp() {
-        Radio radio = new Radio();
+
         radio.setCurrentStation(9);
         radio.setPrevStation();
 
@@ -93,7 +110,7 @@ public class RadioTest {
 
     @Test
     public void shouldPrevStationBoundaryDown() {
-        Radio radio = new Radio();
+
         radio.setCurrentStation(0);
         radio.setPrevStation();
 
@@ -105,7 +122,7 @@ public class RadioTest {
 
     @Test
     public void shouldPrevStationBoundaryNormaltoBoundary() {
-        Radio radio = new Radio();
+
         radio.setCurrentStation(2);
         radio.setPrevStation();
 
@@ -117,8 +134,8 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeInnormal() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(19);
+
+        radio.setCurrentVolume(101);
         int expected = 0;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
@@ -126,7 +143,7 @@ public class RadioTest {
 
     @Test
     public void shouldSetVolumeNormal() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(5);
         int expected = 5;
         int actual = radio.getCurrentVolume();
@@ -135,7 +152,7 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeNormal() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(9);
         radio.increaseVolume();
         int expected = 10;
@@ -145,17 +162,17 @@ public class RadioTest {
 
     @Test
     public void shouldIncreaseVolumeUptoBoundary() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+
+        radio.setCurrentVolume(100);
         radio.increaseVolume();
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void shouldDecreaseVolumeNormal() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(5);
         radio.decreaseVolume();
         int expected = 4;
@@ -166,7 +183,7 @@ public class RadioTest {
 
     @Test
     public void shouldDecreaseVolumeDownToBoundary() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(0);
         radio.decreaseVolume();
         int expected = 0;
@@ -176,7 +193,7 @@ public class RadioTest {
 
     @Test
     public void shouldDecreaseVolumeDownBoundary() {
-        Radio radio = new Radio();
+
         radio.setCurrentVolume(1);
         radio.decreaseVolume();
         int expected = 0;
